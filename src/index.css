@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+    font-family: "Outfit", sans-serif;
+}
+
+.font-prata {
+    font-family: "Prata", sans-serif !important;
+}
+
+@keyframes pulse {
+    0% {
+        border-bottom: 1px solid black;
+    }
+
+    50% {
+        border-bottom: 1px solid transparent;
+    }
+
+    100% {
+        border-bottom: 1px solid black;
+    }
+}
