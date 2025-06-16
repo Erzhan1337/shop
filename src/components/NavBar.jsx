@@ -1,8 +1,12 @@
 import {assets} from "../assets/assets.js"
 import {Link} from "react-router-dom";
+import {useContext} from "react";
+import {myCart} from "../context/CartContext.jsx";
 
 
 function NavBar() {
+
+    const {getTotalQuantity} = useContext(myCart);
     return (
         <div className="flex justify-between items-center">
             <div className="w-[160px] h-[40px]">
@@ -28,7 +32,7 @@ function NavBar() {
                 <Link to="/cart">
                     <div className="w-[24px] h-[24px] relative">
                         <img src={assets.cart_icon} className="w-full h-full object-contain" />
-                        <div className="w-4 h-4 flex justify-center items-center rounded-full bg-black text-[8px] text-white absolute top-[13px] left-[12px]">0</div>
+                        <div className="w-4 h-4 flex justify-center items-center rounded-full bg-black text-[8px] text-white absolute top-[13px] left-[12px]">{getTotalQuantity()}</div>
                     </div>
                 </Link>
             </div>

@@ -1,6 +1,7 @@
 import {useParams} from "react-router-dom";
 import {assets, products} from "../assets/assets.js";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
+import {myCart} from "../context/CartContext.jsx";
 
 
 
@@ -9,13 +10,20 @@ function Product() {
     const product = products.find((product) => product['_id'] === id);
     const[img,setImg] = useState('');
     const [selectedSize, setSelectedSize] = useState('');
+    const {addToCart} = useContext(myCart);
 
     const handleClick = (size) => {
         setSelectedSize(size);
     }
 
     const addCartHandler = () => {
+        if(!selectedSize){
+            alert("Please select size!");
+            return;
+        }
 
+        addToCart(product, selectedSize);
+        alert("Added to cart!");
     }
 
     useEffect(() => {
